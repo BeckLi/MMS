@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ng-app="wedding">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>DEMO</title>
+        <link rel='stylesheet' href='/stylesheets/bootstrap.css'/>
+        <link rel='stylesheet' href='/stylesheets/style.css'/>
+    </head>
+
+    <body ng-controller="BodyCtrl" ng-keypress="listenKeyPress($event)">
+        <div class="main" ng-view></div>
+
+        <aside ng-controller="AsideCtrl">
+            <ul class="nav nav-pills">
+                <li ng-repeat="m in modules" ng-class="{'active': selected == $index}" id="nav-{{m.id}}">
+                    <a href="/{{m.id}}" ng-click="select($index)">{{m.text}}</a>
+                </li>
+            </ul>
+        </aside>
+
+        <script src="/javascripts/angular.js"></script>
+        <script src="/javascripts/angular-route.js"></script>
+        <script src="/javascripts/underscore.js"></script>
+        <script src="/javascripts/event.js"></script>
+    </body>
+</html>
